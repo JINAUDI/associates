@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 233 47% 11%;
+    --foreground: 0 0% 88%;
+
+    --card: 233 45% 14%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 233 45% 14%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 40 35% 57%;
+    --primary-foreground: 233 47% 11%;
+
+    --secondary: 233 35% 20%;
+    --secondary-foreground: 0 0% 88%;
+
+    --muted: 233 35% 20%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 40 50% 45%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 233 30% 25%;
+    --input: 233 30% 25%;
+    --ring: 40 35% 57%;
+
+    --radius: 0.5rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(233 47% 11%), hsl(233 40% 8%));
+    --gradient-gold: linear-gradient(135deg, hsl(40 50% 45%), hsl(40 35% 57%));
+    --shadow-glow: 0 10px 40px -10px hsl(40 35% 57% / 0.3);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 233 47% 11%;
+    --foreground: 0 0% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* add marquee keyframes and helpers for logo slider */
+  @keyframes logo-scroll-left {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes logo-scroll-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  .logo-marquee {
+    position: relative;
+    overflow: hidden;
+    /* Edge fade for a cleaner continuous loop */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .logo-track {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Tailwind gap-8 equivalent */
+    will-change: transform;
+  }
+
+  .animate-logo-left {
+    animation-name: logo-scroll-left;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .animate-logo-right {
+    animation-name: logo-scroll-right;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  /* add grayscale utility for client logos */
+  .logo-img {
+    filter: grayscale(100%) contrast(1.05);
+    opacity: 0.95;
+  }
+}
