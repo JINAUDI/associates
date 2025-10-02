@@ -26,6 +26,7 @@
     "lovable-tagger": "latest",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "latest",
     "typescript": "^5.0.2",
     "vite": "^5.0.0"
   }
