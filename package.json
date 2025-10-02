@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-tooltip": "latest",
     "@tanstack/react-query": "latest",
     "next-themes": "latest",
     "react": "^18.2.0",
